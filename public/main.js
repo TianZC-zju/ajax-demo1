@@ -2,8 +2,7 @@
 let getCss = document.querySelector('.getCss')
 getCss.onclick= ()=>{
     const request = new XMLHttpRequest();
-    request.open('GET', '/stle.css')
-
+    request.open('GET', '/style.css')
     request.onreadystatechange = ()=>{
         if(request.readyState === 4){
             if(request.status >=200 && request.status <300){
@@ -17,9 +16,24 @@ getCss.onclick= ()=>{
         }
 
     }
-    // request.onerror = ()=>{
-    //     console.log("失败了")
-    // }
+    request.send()
+}
+let getHtml = document.querySelector('.getHtml')
+getHtml.onclick= ()=>{
+    const request = new XMLHttpRequest();
+    request.open('GET', '/2.html')
+    request.onreadystatechange = ()=>{
+        if(request.readyState === 4){
+            if(request.status >=200 && request.status <300){
+                const htmlDivElement = document.createElement('div')
+                htmlDivElement.innerHTML = request.response
+                document.body.appendChild(htmlDivElement)
+            }else {
+                console.log("加载失败")
+            }
+        }
+
+    }
     request.send()
 }
 

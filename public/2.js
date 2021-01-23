@@ -1,1 +1,1 @@
-console.log("花花当爸爸了")
+console.log("这是js")
